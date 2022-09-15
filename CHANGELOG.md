@@ -18,6 +18,8 @@
 
 ### Modules
 
+- Fix bug in branch selection in `ModulesJson` due to irregularity in `questionary` module. ([#1824](https://github.com/nf-core/tools/issues/1824))
+
 ## [v2.5.1 - Gold Otter Patch](https://github.com/nf-core/tools/releases/tag/2.5.1) - [2022-08-31]
 
 - Patch release to fix black linting in pipelines ([#1789](https://github.com/nf-core/tools/pull/1789))

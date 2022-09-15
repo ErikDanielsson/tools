@@ -229,7 +229,7 @@ class ModulesJson:
                     correct_commit_sha = self.find_correct_commit_sha(module, module_path, modules_repo)
                 if correct_commit_sha is None:
                     log.info(f"Was unable to find matching module files in the {modules_repo.branch} branch.")
-                    choices = [{"name": "No", "value": None}] + [
+                    choices = [{"name": "No", "value": False}] + [
                         {"name": branch, "value": branch} for branch in (available_branches - tried_branches)
                     ]
                     branch = questionary.select(
@@ -237,7 +237,7 @@ class ModulesJson:
                         choices=choices,
                         style=nf_core.utils.nfcore_question_style,
                     ).unsafe_ask()
-                    if branch is None:
+                    if branch is False:
                         action = questionary.select(
                             f"Module is untracked '{module}'. Please select what action to take",
                             choices=[
@@ -349,9 +349,7 @@ class ModulesJson:
                     # Check if the entry has a git sha and branch before removing
                     modules = module_repo["modules"]
                     if "git_sha" not in modules[module] or "branch" not in modules[module]:
-                        self.determine_module_branches_and_shas(
-                            module, module_repo["git_url"], module_repo["base_path"], [module]
-                        )
+                        self.determine_module_branches_and_shas(module_repo_name, module_repo["git_url"], [module])
                     module_repo["modules"].pop(module)
                     if len(module_repo["modules"]) == 0:
                         missing_installation.pop(module_repo_name)
