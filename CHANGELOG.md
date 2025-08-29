@@ -4,6 +4,8 @@
 
 ### Template
 
+- Update the `download_pipeline` workflow to remove dependency on `dev` branch of tools ([#3734](https://github.com/nf-core/tools/pull/3734))
+
 ### Linting
 
 - ignore files in gitignore also for pipeline_if_empty_null lint test ([#3722](https://github.com/nf-core/tools/pull/3722))
@@ -30,6 +32,7 @@
   - Add support for downloading docker images into tar archives
   - Change long flag `--parallel-downloads` to `--parallel`. Short flag remains `-d`.
   - Add pipeline to test data to be compatible with `nextflow inspect`
+- Add container load scripts for Docker and Podman (#3634 follow up) ([#3706](https://github.com/nf-core/tools/pull/3706))
 - Replace arm profile with arm64 and emulate_amd64 profiles ([#3689](https://github.com/nf-core/tools/pull/3689))
 - Update test-datasets list subcommand to output plain text urls and paths for easy copying [#3720](https://github.com/nf-core/tools/pull/3720)
 - Remove workflow.trace from nf-test snapshot ([#3721](https://github.com/nf-core/tools/pull/3721))
